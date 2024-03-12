@@ -1,0 +1,100 @@
+tableextension 50006 "Job Ledger Entry.NOWL" extends "Job Ledger Entry"
+{
+    /*
+
+        NOWL00004, Columbus IT, US\BBR, 06 AUG 19
+        Additional Job Information on TimeSheets
+        Add "Line Comment"
+
+        NIGHT0001, Columbus IT, US\BBR, 01 JUN 20
+        Change Matter to Billing Reference
+
+        NIGHT0002, Columbus IT, US\BBR, 10 JUN 20
+        Billing Description
+
+        NIGHT0006, Columbus IT, GDC\RAVU, 27 OCT 20
+        -Added fields "Your Reference and Your Reference 2"
+
+
+    */
+
+    fields
+    {
+        // Add changes to table fields here
+        field(50000; "Line Comment.NOWL"; Text[100])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Line Comment';
+
+        }
+        field(50001; "Work Description.NOWL"; Text[100])
+
+
+
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Work Description';
+            ObsoleteState = Removed;
+        }
+        field(50003; "Customer No.NOWL"; Code[20])
+        {
+            Caption = 'Customer No.';
+            Editable = false;
+
+        }
+        field(50004; "Customer Name.NOWL"; Text[50])
+        {
+            Caption = 'Customer Name';
+            Editable = false;
+
+        }
+        field(50005; "Matter Entry No.NOWL"; Integer)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Billing Reference Entry No.';    // NIGHT0001  //'Matter Entry No.';
+            Editable = false;
+        }
+        field(50006; "Matter Description.NOWL"; Text[50])
+        {
+            Caption = 'Billing Reference Description';  // NIGHT0001  //'Matter Description';
+            Editable = false;
+
+        }
+        field(50007; "Time Sheet Resource No.NOWL"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Time Sheet Resource No.';
+            Editable = false;
+
+        }
+        field(50008; "Time Sheet Resource Name.NOWL"; Text[50])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Time Sheet Resource Name';
+            Editable = false;
+
+        }
+        // NIGHT0002
+        field(50011; "Billing Description.NOWL"; Text[50])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Billing Description';
+            Editable = false;
+        }
+       // NIGHT0006
+        field(50020; "Your Reference.NOWL";Text[35])
+        {
+            Caption = 'Your Reference';
+            DataClassification = CustomerContent;
+        }
+        field(50030; "Your Reference 2.NOWL";Text[35])
+        {
+            Caption = 'Your Reference 2';
+            DataClassification = CustomerContent;
+        }
+
+    }
+
+    var
+        myInt: Integer;
+}
